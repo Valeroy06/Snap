@@ -18,26 +18,23 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav>
+      <nav className={styles.nav}>
         <a href="/home"><img src={Images.logo} className="logo" alt="logo" /></a>
-        <div className={styles.hamburger} onClick={handleMobile}>
-          <MenuIcon />
-        </div>
-        <div className={styles.link}>
-          <div className={styles.side}>
-            <i className={styles.closeicon}>
-              <CloseIcon />
-            </i>
+        <div className={`${mobile ? styles.mobile_links : styles.links}`}>
+          <div className={styles.icon} onClick={handleMobile}>
+            {mobile ? <CloseIcon /> : <MenuIcon />}
+          </div>
+          <div className={`${mobile ? styles.mobile_link : styles.link}`}>
             <div className={styles.nav_list}>
               <li>Features<span> <KeyboardArrowDownIcon /></span></li>
               <li>Company<span><KeyboardArrowDownIcon /></span></li>
               <li><a href="#">Careers</a></li>
               <li><a href="#">About</a></li>
             </div>
-          </div>
-          <div className={styles.reg}>
-            <li><a href="#">Login</a></li>
-            <button>Register</button>
+            <div className={styles.reg}>
+              <button className={styles.login}>Login</button>
+              <button className='register'>Register</button>
+            </div>
           </div>
         </div>
       </nav>
